@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <name>roomba_description</name>
+  <version>0.0.0</version>
+  <description>The roomba_description package</description>
+
+  <maintainer email="goncabrita@gmail.com">Gonçalo Cabrita</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/roomba_description</url>
+
+  <author email="goncabrita@gmail.com">Gonçalo Cabrita</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>urdf</build_depend>
+  <build_depend>xacro</build_depend>
+
+  <run_depend>urdf</run_depend>
+  <run_depend>xacro</run_depend>
+
+</package>

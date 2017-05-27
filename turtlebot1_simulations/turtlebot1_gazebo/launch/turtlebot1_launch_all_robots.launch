@@ -1,0 +1,54 @@
+<!--@info: Launch file to spawn all robots: -->
+<!--@todo: create and roomba have still same base! -->
+<!--@todo: only create and kobuki base are available -->
+<launch>
+<!--  <arg name="model" default="$(env TURTLEBOT1_MODEL)" doc="model type [turtlebot1_main,]"/> -->
+<arg name="x_pos" default="0.0"/>
+<arg name="y_pos" default="0.0"/>
+<arg name="z_pos" default="0.0"/>
+
+<arg name="x_pos_2" default="1.0"/>
+
+<include file="$(find gazebo_ros)/launch/empty_world.launch">
+<arg name="world_name" value="$(find turtlebot1_gazebo)/worlds/empty.world"/> <!-- loads world file from folder worlds -->
+<arg name="paused" value="false"/>
+<arg name="use_sim_time" value="true"/>
+<arg name="gui" value="true"/>
+<arg name="headless" value="false"/>
+<arg name="debug" value="false"/>
+</include>
+
+<!-- spawn all robots: -->
+<param name="roomba_wite_base" command="$(find xacro)/xacro.py '$(find roomba_description)/urdf/roomba.urdf.xacro' color:=white" />
+<node name="spawn_roomba_white" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+args="-urdf -model roomba_wite_base -x 0 -y 0 -z 0 -param roomba_wite_base " />
+
+<param name="roomba_black_base" command="$(find xacro)/xacro.py '$(find roomba_description)/urdf/roomba.urdf.xacro' color:=black" />
+<node name="spawn_roomba_black" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+args="-urdf -model roomba_black_base -x 1 -y 0 -z 0 -param roomba_black_base " />
+
+<!-- spawning kobuki -->
+<!-- watch out the kobuki only works under gazebo 7 without any errors! -->
+<param name="kobuki_kinect" command="$(find xacro)/xacro.py $(find turtlebot1_descriptions_launch)/robots/kobuki_hexagons_kinect.urdf.xacro" />
+ <param name="use_gui" value="True"/>
+<!-- Spawn a robot into Gazebo -->
+<node name="spawn_kinect_kobuki" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+args="-urdf -model kobuki_kinect -x 2 -y 0 -z $(arg z_pos) -param kobuki_kinect " />
+
+<param name="kobuki_xtion" command="$(find xacro)/xacro.py $(find turtlebot1_descriptions_launch)/robots/kobuki_hexagons_asus_xtion_pro.urdf.xacro" />
+<node name="spawn_xtion_kobuki" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+args="-urdf -model kobuki_xtion -x 3 -y 0 -z $(arg z_pos) -param kobuki_xtion " />
+
+<param name="create_kinect" command="$(find xacro)/xacro.py $(find turtlebot1_descriptions_launch)/robots/create_circles_kinect.urdf.xacro" />
+<node name="spawn_create_kinect" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+args="-urdf -model create_kinect -x 4 -y 0 -z $(arg z_pos) -param create_kinect " />
+
+<param name="create_xtion" command="$(find xacro)/xacro.py $(find turtlebot1_descriptions_launch)/robots/create_circles_asus_xtion_pro.urdf.xacro" />
+<node name="spawn_create_xtion" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+args="-urdf -model create_xtion -x 5 -y 0 -z $(arg z_pos) -param create_xtion " />
+
+
+
+
+</launch>
+

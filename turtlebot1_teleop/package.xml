@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>turtlebot1_teleop</name>
+  <version>0.1.0</version>
+  <description>The turtlebot1_teleop package</description>
+  <maintainer email="markus@todo.todo">markus</maintainer>
+  <license>Apache 2.0</license>
+  <author >Markus Lamprecht</author>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+
+</package>

@@ -1,0 +1,4 @@
+<launch>
+<include file="$(find roomba_description)/launch/black_roomba.launch">
+</include>
+</launch>

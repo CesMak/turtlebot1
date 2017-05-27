@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+  The complete turtlebot library of xacros for easy reference
+ -->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- General -->
+  <xacro:include filename="$(find turtlebot1_descriptions_launch)/urdf/common_properties.urdf.xacro"/>
+  <xacro:include filename="$(find turtlebot1_descriptions_launch)/urdf/turtlebot_properties.urdf.xacro"/>
+
+  <!-- Bases -->
+  <xacro:include filename="$(find create_description)/urdf/create.urdf.xacro"/>
+  <xacro:include filename="$(find kobuki_description)/urdf/kobuki.urdf.xacro" />
+  <!--do not include the following otherwise it will output an error - Color .... -->
+    <!-- <xacro:include filename="$(find roomba_description)/urdf/roomba.urdf.xacro" />-->
+
+  <!-- Stacks -->
+  <xacro:include filename="$(find turtlebot1_descriptions_launch)/urdf/stacks/circles.urdf.xacro"/>
+  <xacro:include filename="$(find turtlebot1_descriptions_launch)/urdf/stacks/hexagons.urdf.xacro"/>
+
+  <!-- 3D Sensors-->
+  <xacro:include filename="$(find turtlebot1_descriptions_launch)/urdf/sensors/kinect.urdf.xacro"/>
+  <xacro:include filename="$(find turtlebot1_descriptions_launch)/urdf/sensors/asus_xtion_pro.urdf.xacro"/>
+
+</robot>
