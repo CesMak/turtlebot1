@@ -1,0 +1,22 @@
+<!--@info just launches the rviz file! of different robots! -->
+<!--@info view the base models: (no errors come for the roomba only if you start gazebo first!)  -->
+<!--@info the roomba rviz listens to the gazebo simulation  -->
+<launch>
+
+<arg name="model"  value="roomba"  doc="model type [roomba,create,kobuki]"/>
+
+<arg name="urdf_file" default="$(find xacro)/xacro.py '$(find roomba_description)/urdf/roomba.urdf.xacro'" />
+<param name="robot_description" command="$(arg urdf_file)" />
+
+<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+<param name="publish_frequency" type="double" value="5.0" />
+</node>
+
+<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+<param name="use_gui" value="true"/>
+</node>
+
+ <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot1_rviz)/rviz_config/$(arg model).rviz"/>
+
+
+</launch>
