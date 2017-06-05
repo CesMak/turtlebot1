@@ -3,8 +3,11 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="turtlebot_gazebo">
 	<xacro:macro name="sim_create">
 	  <gazebo>
-	    <plugin name="create_controller" filename="libgazebo_ros_create.so">
-	      <alwaysOn>true</alwaysOn>
+          <!-- edit - Markus: war zuvor: libgazebo_ros_create.so
+find . / -name libgazebo_ros_create.so comes with gazebo2 ! not available under gazebo7
+-->
+
+              <!-- <alwaysOn>true</alwaysOn>
 	      <node_namespace>turtlebot_node</node_namespace>
 	      <left_wheel_joint>left_wheel_joint</left_wheel_joint>
 	      <right_wheel_joint>right_wheel_joint</right_wheel_joint>
@@ -12,9 +15,23 @@
 	      <rear_castor_joint>rear_castor_joint</rear_castor_joint>
 	      <wheel_separation>.260</wheel_separation>
 	      <wheel_diameter>0.066</wheel_diameter>
-	      <base_geom>base_footprint_collision_base_link</base_geom>
+              <commandTopic>cmd_vel</commandTopic>
+              <base_geom>base_footprint_collision_base_link</base_geom>
 	      <updateRate>40</updateRate>
 	      <torque>1.0</torque>
+-->
+            <plugin name="create_controller" filename="libgazebo_ros_diff_drive.so">
+                <alwaysOn>true</alwaysOn>
+                <updateRate>40</updateRate>
+                <leftJoint>left_wheel_joint</leftJoint>
+                <rightJoint>right_wheel_joint</rightJoint>
+                <wheelSeparation>.260</wheelSeparation>
+                <wheelDiameter>0.066</wheelDiameter>
+                <commandTopic>cmd_vel</commandTopic>
+                <odometryTopic>odom</odometryTopic>
+                <odometryFrame>odom</odometryFrame>
+               <robotBaseFrame>base_footprint_collision_base_link</robotBaseFrame>
+              <torque>1.0</torque>
 	    </plugin>
 	  </gazebo>
   

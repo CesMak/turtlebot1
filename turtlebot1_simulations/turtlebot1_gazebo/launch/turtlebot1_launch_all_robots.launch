@@ -19,6 +19,7 @@
 </include>
 
 <!-- spawn all robots: -->
+<!-- Roomba: -->
 <param name="roomba_wite_base" command="$(find xacro)/xacro.py '$(find roomba_description)/urdf/roomba.urdf.xacro' color:=white" />
 <node name="spawn_roomba_white" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 args="-urdf -model roomba_wite_base -x 0 -y 0 -z 0 -param roomba_wite_base " />
@@ -27,10 +28,11 @@ args="-urdf -model roomba_wite_base -x 0 -y 0 -z 0 -param roomba_wite_base " />
 <node name="spawn_roomba_black" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 args="-urdf -model roomba_black_base -x 1 -y 0 -z 0 -param roomba_black_base " />
 
-<!-- spawning kobuki -->
+
+<!-- Kobuki:  -->
 <!-- watch out the kobuki only works under gazebo 7 without any errors! -->
 <param name="kobuki_kinect" command="$(find xacro)/xacro.py $(find turtlebot1_descriptions_launch)/robots/kobuki_hexagons_kinect.urdf.xacro" />
- <param name="use_gui" value="True"/>
+<param name="use_gui" value="True"/>
 <!-- Spawn a robot into Gazebo -->
 <node name="spawn_kinect_kobuki" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 args="-urdf -model kobuki_kinect -x 2 -y 0 -z $(arg z_pos) -param kobuki_kinect " />
@@ -39,6 +41,8 @@ args="-urdf -model kobuki_kinect -x 2 -y 0 -z $(arg z_pos) -param kobuki_kinect 
 <node name="spawn_xtion_kobuki" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 args="-urdf -model kobuki_xtion -x 3 -y 0 -z $(arg z_pos) -param kobuki_xtion " />
 
+
+<!-- Create: -->
 <param name="create_kinect" command="$(find xacro)/xacro.py $(find turtlebot1_descriptions_launch)/robots/create_circles_kinect.urdf.xacro" />
 <node name="spawn_create_kinect" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 args="-urdf -model create_kinect -x 4 -y 0 -z $(arg z_pos) -param create_kinect " />

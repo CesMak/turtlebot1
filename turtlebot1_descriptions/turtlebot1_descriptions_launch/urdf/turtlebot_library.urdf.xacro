@@ -13,9 +13,10 @@
   <!--do not include the following otherwise it will output an error - Color .... -->
     <!-- <xacro:include filename="$(find roomba_description)/urdf/roomba.urdf.xacro" />-->
 
-  <!-- Stacks -->
+  <!-- Stacks-->
   <xacro:include filename="$(find turtlebot1_descriptions_launch)/urdf/stacks/circles.urdf.xacro"/>
   <xacro:include filename="$(find turtlebot1_descriptions_launch)/urdf/stacks/hexagons.urdf.xacro"/>
+
 
   <!-- 3D Sensors-->
   <xacro:include filename="$(find turtlebot1_descriptions_launch)/urdf/sensors/kinect.urdf.xacro"/>

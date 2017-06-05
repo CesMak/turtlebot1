@@ -296,7 +296,7 @@
 	  </link>
 	  
 	  <!-- Simulation sensors -->
-	  <sim_create/>
+          <sim_create/> <!-- - start gazebo plugin that is used to teleop?! -->
 	  <sim_create_wall_sensor/>
 	  <sim_create_cliff_sensors/>
     <sim_imu/>

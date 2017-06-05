@@ -170,7 +170,8 @@
 	  </gazebo>
 
 	  <gazebo>
-	    <plugin name="kobuki_controller" filename="libgazebo_ros_kobuki.so">
+          <!-- This works under gazebo2 with the libgazebo_ros_kobuki.so plugin installed:
+            <plugin name="kobuki_controller" filename="libgazebo_ros_kobuki.so">
 	      <publish_tf>1</publish_tf>
 	      <left_wheel_joint_name>wheel_left_joint</left_wheel_joint_name>
 	      <right_wheel_joint_name>wheel_right_joint</right_wheel_joint_name>
@@ -183,8 +184,29 @@
 	      <cliff_sensor_right_name>cliff_sensor_right</cliff_sensor_right_name>
 	      <cliff_detection_threshold>0.04</cliff_detection_threshold>
 	      <bumper_name>bumpers</bumper_name>
-        <imu_name>imu</imu_name>
-	    </plugin>
+              <imu_name>imu</imu_name>
+            </plugin> -->
+
+<!-- This works for gazebo7 using the plugin diff drive of gazebo! -->
+<plugin name="kobuki_controller" filename="libgazebo_ros_diff_drive.so">
+   <publish_tf>1</publish_tf>
+    <velocity_command_timeout>0.6</velocity_command_timeout>
+    <alwaysOn>true</alwaysOn>
+    <updateRate>40</updateRate>
+    <leftJoint>wheel_left_joint</leftJoint>
+    <rightJoint>wheel_right_joint</rightJoint>
+    <wheelSeparation>.230</wheelSeparation>
+    <wheelDiameter>0.070</wheelDiameter>
+    <torque>20</torque>
+    <commandTopic>cmd_vel</commandTopic>
+    <cliff_sensor_left_name>cliff_sensor_left</cliff_sensor_left_name>
+    <cliff_sensor_center_name>cliff_sensor_front</cliff_sensor_center_name>
+    <cliff_sensor_right_name>cliff_sensor_right</cliff_sensor_right_name>
+    <cliff_detection_threshold>0.04</cliff_detection_threshold>
+    <bumper_name>bumpers</bumper_name>
+    <imu_name>imu</imu_name>
+</plugin>
+
 	  </gazebo>
   </xacro:macro>
 </robot>
