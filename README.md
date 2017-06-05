@@ -1,4 +1,14 @@
-# Installation of Turtlebot1:
+# Installation of Turtlebot1 and Turtlebot2:
+
+## Requirements:
+Ubuntu 14.04.4 (or higher)
+ROS-INDIGO     (or higher)
+Gazebo7        (or higher)
+Gazebo diff drive Plugin:
+```
+sudo apt-get install ros-indigo-gazebo7-*
+sudo apt-get install ros-indigo-effort-controllers
+```
 
 ## Prerequisite:
 Make sure that no workspace is sourced in your .bashrc file. Check it via:
@@ -22,8 +32,8 @@ turtle sim
 ```
 
 ## Gazebo simulation:
-
+![](https://github.com/CesMak/turtlebot1/blob/master/doc/gazebo_all_robots.png)
 
 ## Installation Sources overview:
-![](https://github.com/gareth-cross/rviz_satellite/blob/master/.screenshot.png)
+![](https://github.com/CesMak/turtlebot1/blob/master/doc/Installation_Overview.png)
 
