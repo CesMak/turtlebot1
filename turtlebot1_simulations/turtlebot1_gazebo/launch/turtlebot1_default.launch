@@ -8,9 +8,9 @@
 <arg name="world_file" default="$(env TURTLEBOT1_WORLD)" doc ="empty, ..." />
 
 <!-- Choose your robot you want to start: -->
-<arg name="model"  value="roomba" doc="model type [roomba,create,kobuki]"/>
-<arg name="stacks" value="-" doc="Stacks [circles (create), hexagons (kobuki), -(roomba)]"/>
-<arg name="sensor" value="-" doc="3d sensor [kinect asus_xtion_pro, -(roomba)]"/>
+<arg name="model"  default="$(env TURTLEBOT1_MODEL)"  doc="model type [roomba,create,kobuki]"/>
+<arg name="stacks" default="$(env TURTLEBOT1_STACKS)" doc="Stacks [circles (create), hexagons (kobuki), -(roomba)]"/>
+<arg name="sensor" default="$(env TURTLEBOT1_SENSOR)" doc="3d sensor [kinect asus_xtion_pro, -(roomba)]"/>
 <arg name="robot_description" default="$(find xacro)/xacro --inorder
 $(find turtlebot1_descriptions_launch)/robots/$(arg model)_$(arg stacks)_$(arg sensor).urdf.xacro"/>
 
