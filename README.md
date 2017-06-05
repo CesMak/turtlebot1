@@ -7,7 +7,8 @@ Make sure that no workspace is sourced in your .bashrc file. Check it via:
 
 ## Installation:
 
-`cd ~
+```
+cd ~
 mkdir turtlebot1
 cd turtlebot1
 git clone https://github.com/CesMak/turtlebot_install .
@@ -18,11 +19,11 @@ turtle install roomba_521
 turtle update_make
 source setup.bash
 turtle sim
-`
+```
 
 ## Gazebo simulation:
 
 
 ## Installation Sources overview:
-![image text](https://github.com/gareth-cross/rviz_satellite/blob/master/.screenshot.png)
+![](https://github.com/gareth-cross/rviz_satellite/blob/master/.screenshot.png)
 
