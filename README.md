@@ -37,3 +37,14 @@ turtle sim
 ## Installation Sources overview:
 ![](https://github.com/CesMak/turtlebot1/blob/master/doc/Installation_Overview.png)
 
+
+### Github initialization:
+
+```
+git init
+git add --a
+git commit -m "name"
+git remote add HTTPS-rep
+git push -u origin master
+```
+
