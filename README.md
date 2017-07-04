@@ -39,11 +39,13 @@ turtle switch_gazebo [required under indigo: switch to gazebo version7]
 turtle sim  (requires simulation to be installed)
 ```
 
-## Usage:
+## Launch it:
+```
 roslaunch turtlebot1_gazebo turtlebot1_empty_world.launch
 roslaunch turtlebot1_gazebo turtlebot1_launch_all_robots.launch
 roslaunch turtlebot1_gazebo turtlebot1_roomba_empty_world.launch
 roslaunch turtlebot1_teleop teleop_key.launch
+```
 
 ## Gazebo simulation:
 ![](https://github.com/CesMak/turtlebot1/blob/master/doc/gazebo_all_robots.png)
