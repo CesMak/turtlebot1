@@ -41,9 +41,10 @@ turtle sim  (requires simulation to be installed)
 
 ## Launch it:
 ```
-roslaunch turtlebot1_gazebo turtlebot1_empty_world.launch
+roslaunch turtlebot1_gazebo turtlebot1.launch
+roslaunch turtlebot1_gazebo turtlebot1_default.launch
 roslaunch turtlebot1_gazebo turtlebot1_launch_all_robots.launch
-roslaunch turtlebot1_gazebo turtlebot1_roomba_empty_world.launch
+roslaunch turtlebot1_gazebo turtlebot1_full.launch  [rviz, gazebo with teleop in tb1 world]
 roslaunch turtlebot1_teleop teleop_key.launch
 ```
 
