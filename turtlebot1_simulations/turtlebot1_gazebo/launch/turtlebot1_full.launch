@@ -1,0 +1,117 @@
+<!--@todo how to configure an initial orientation -?  -->
+<!--@todo rviz for create and kobuki base   -->
+<!--@todo sensor simulation   -->
+<!--@todo check gazebo plugins: kobuki.so create.so!!! -->
+<launch>
+
+<!-- Choose the world you want to use: -->
+<arg name="world_file" default="corridor" doc ="empty, ..." />
+
+<!-- Choose your robot you want to start: -->
+<arg name="model"  value="roomba" doc="model type [roomba,create,kobuki]"/>
+<arg name="stacks" value="-" doc="Stacks [circles (create), hexagons (kobuki), -(roomba)]"/>
+<arg name="sensor" value="-" doc="3d sensor [kinect asus_xtion_pro, -(roomba)]"/>
+<arg name="robot_description" default="$(find xacro)/xacro --inorder
+$(find turtlebot1_descriptions_launch)/robots/$(arg model)_$(arg stacks)_$(arg sensor).urdf.xacro"/>
+
+<!-- Start rviz as well? -->
+<arg name="start_rviz" value="true" /> <!--currently only working for roomba! -->
+
+<!-- initial position of robot -->
+<arg name="x_pos" default="0.0"/>
+<arg name="y_pos" default="0.0"/>
+<arg name="z_pos" default="0.0"/>
+
+<!-- start gazebo with world file -->
+<include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find turtlebot1_gazebo)/worlds/$(arg world_file).world"/> <!-- loads world file from folder worlds -->
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+</include>
+
+
+<!-- Spawn robot: -->
+<param name="robot_description" command="$(arg robot_description)"/>
+<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+args="-urdf -model turtlebot_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+
+
+
+<!-- Start rviz: -->
+<group if="$(arg start_rviz)">
+<arg name="urdf_file" default="$(find xacro)/xacro.py '$(find roomba_description)/urdf/roomba.urdf.xacro'" />
+<param name="robot_description" command="$(arg urdf_file)" />
+
+<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+<param name="publish_frequency" type="double" value="5.0" />
+</node>
+
+<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+<param name="use_gui" value="true"/>
+</node>
+
+ <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot1_rviz)/rviz_config/$(arg model).rviz"/>
+
+</group>
+
+<!-- Start also Teleop! -->
+<include file="$(find turtlebot1_teleop)/teleop_key.launch"></include>
+
+</launch>
+
+
+
+
+
+<!-- additional hints:
+
+<node name="spawn_kinect" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+args="-urdf -model romba_kinect -x $(arg x_pos) -y 0 -z $(arg z_pos) -R $(arg roll_orient) -P $(arg pitch_orient) -Y $(arg yaw_orient) -param roomba_kinect " />
+-->
+
+
+<!-- initial  orientation of robot
+<arg name="roll_orient" default="50"/>
+<arg name="pitch_orient" default="0.0"/>
+<arg name="yaw_orient" default="0.0"/>
+ -->
+
+
+
+
+<!-- Create:
+<param name="roomba_kinect" command="$(find xacro)/xacro.py $(find turtlebot1_descriptions_launch)/robots/create_circles_kinect.urdf.xacro" />
+<node name="spawn_kinect" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+args="-urdf -model romba_kinect -x $(arg x_pos) -y 0 -z $(arg z_pos) -param roomba_kinect " />
+-->
+
+<!-- Kobuki:
+<include file="$(find kobuki_description)/launch/view_model.launch"></include>
+
+<param name="kobuki_xtion" command="$(find xacro)/xacro.py $(find turtlebot1_descriptions_launch)/robots/kobuki_hexagons_asus_xtion_pro.urdf.xacro" />
+<node name="spawn_xtion_kobuki" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+args="-urdf -model kobuki_xtion -x 3 -y 0 -z $(arg z_pos) -param kobuki_xtion " />
+-->
+
+
+<!-- Roomba: rviz and gazebo works :)
+<arg name="urdf_file" default="$(find xacro)/xacro.py '$(find roomba_description)/urdf/roomba.urdf.xacro' color:=black" />
+<param name="robot_description" command="$(arg urdf_file)" />
+<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+
+
+<param name="publish_frequency" type="double" value="5.0" />
+</node>
+<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+
+<param name="use_gui" value="true"/>
+</node>
+ <node name="rviz" pkg="rviz" type="rviz" args="-d $(find roomba_description)/roomba.rviz"/>
+
+<param name="roomba_black_base" command="$(find xacro)/xacro.py '$(find roomba_description)/urdf/roomba.urdf.xacro' color:=black" />
+<node name="spawn_roomba_black" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+args="-urdf -model roomba_black_base -x 1 -y 0 -z 0 -param roomba_black_base " />
+-->
