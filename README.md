@@ -39,7 +39,7 @@ turtle switch_gazebo [required under indigo: switch to gazebo version7]
 turtle sim  (requires simulation to be installed)
 ```
 
-## Launch it:
+## Launch Simulation:
 ```
 roslaunch turtlebot1_gazebo turtlebot1.launch
 roslaunch turtlebot1_gazebo turtlebot1_default.launch
@@ -47,6 +47,12 @@ roslaunch turtlebot1_gazebo turtlebot1_launch_all_robots.launch
 roslaunch turtlebot1_gazebo turtlebot1_full.launch  [rviz, gazebo with teleop in tb1 world]
 roslaunch turtlebot1_teleop teleop_key.launch
 ```
+
+## Launch Roomba_521:
+```
+
+```
+[Roomba Doku](https://github.com/CesMak/roomba_521)
 
 ## Gazebo simulation:
 ![](https://github.com/CesMak/turtlebot1/blob/master/doc/gazebo_all_robots.png)
