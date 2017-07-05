@@ -30,6 +30,7 @@ find . / -name libgazebo_ros_create.so comes with gazebo2 ! not available under 
                 <commandTopic>cmd_vel</commandTopic>
                 <odometryTopic>odom</odometryTopic>
                 <odometryFrame>odom</odometryFrame>
+                <legacyMode>false</legacyMode>
                <robotBaseFrame>base_footprint_collision_base_link</robotBaseFrame>
               <torque>1.0</torque>
 	    </plugin>

@@ -198,6 +198,7 @@
     <wheelSeparation>.230</wheelSeparation>
     <wheelDiameter>0.070</wheelDiameter>
     <torque>20</torque>
+    <legacyMode>false</legacyMode>
     <commandTopic>cmd_vel</commandTopic>
     <cliff_sensor_left_name>cliff_sensor_left</cliff_sensor_left_name>
     <cliff_sensor_center_name>cliff_sensor_front</cliff_sensor_center_name>
