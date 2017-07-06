@@ -14,7 +14,7 @@ sudo apt-get install ros-indigo-effort-controllers
 Gazebo diff drive Plugin (for KINETIC):
 ```
 sudo apt-get install ros-kinetic-gazebo-ros-pkgs
-ros-kinetic-gazebo-ros-control
+sudo apt-get install ros-kinetic-gazebo-ros-control
 ```
 
 ## Prerequisite:
