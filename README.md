@@ -24,7 +24,8 @@ Make sure that no workspace is sourced in your .bashrc file. Check it via:
 
 ## Installation:
 
-[![Demo CountPages alpha](https://share.gifyoutube.com/KzB6Gb.gif)](https://www.youtube.com/watch?v=ek1j272iAmc)
+![](https://github.com/CesMak/turtlebot1/blob/master/doc/installation.gif)
+
 ```
 cd ~
 mkdir turtlebot1
