@@ -42,6 +42,9 @@ turtle sim  (requires simulation to be installed)
 ```
 
 ## Launch Simulation:
+
+![simulation video](https://github.com/CesMak/turtlebot1/blob/master/doc/simulation.mp4)
+
 ```
 roslaunch turtlebot1_gazebo turtlebot1.launch
 roslaunch turtlebot1_gazebo turtlebot1_default.launch
@@ -50,10 +53,7 @@ roslaunch turtlebot1_gazebo turtlebot1_full.launch  [rviz, gazebo with teleop in
 roslaunch turtlebot1_teleop teleop_key.launch
 ```
 
-## Launch Roomba_521:
-```
-
-```
+## Installation of the Roomba_521 package:
 [Roomba Doku](https://github.com/CesMak/roomba_521)
 
 ## Gazebo simulation:
