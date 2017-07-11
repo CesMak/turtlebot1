@@ -42,7 +42,8 @@ turtle sim  (requires simulation to be installed)
 ```
 
 ## Simulation:
-[![Turtlebot1_Simulation](https://img.youtube.com/vi/XWDSzjQCw/0.jpg)](https://www.youtube.com/watch?v=4-XWDSzjQCw)
+
+[![Turtlebot1_Simulation](https://img.youtube.com/vi/XWDSzjQCw/2.jpg)](https://www.youtube.com/watch?v=4-XWDSzjQCw)
 
 1. Install it via:
 ```
@@ -51,7 +52,6 @@ turtle update_make
 ```
 
 2. Launch the Simulation via:
-
 
 | Command | Explanation |
 | ------------- | ------------- |
@@ -63,7 +63,49 @@ turtle update_make
 
 
 ## Installation of the Roomba_521 package:
-[Roomba Doku](https://github.com/CesMak/roomba_521)
+
+[![PD_Controller](https://img.youtube.com/vi/pNLwUF0T-Nc/0.jpg)](https://www.youtube.com/watch?v=pNLwUF0T-Nc)
+
+1. Install the Roomba package:
+```
+turtle install  roomba_521
+turtle update_make
+```
+
+2. Give rights to the USB:
+```
+sudo usermod -a -G dialout $USER
+```
+
+3. Logut and login for permission to take effect
+4. Connect your pc via usb with the open interface of the roomba
+5. Start the roomba (click the power button) make sure the power light glows green (if not charge your roomba first)
+6. Start the node:
+```
+roslaunch r_driver r_521.launch
+```
+
+7. Subscribe / publish Topics:
+
+| Command | Explanation |
+| ------------- | ------------- |
+| rostopic pub mySong std_msgs/Bool true| |
+| rostopic pub /sound std_msgs/UInt8MultiArray '{data:[70,102]}'||
+| rostopic pub -r 10 /cmd_vel geometry_msgs/Twist '{linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'||
+| rostopic echo bumper||
+| rostopic pub /dock_led std_msgs/Bool "data: false" |sets dock light to green|
+| rostopic pub /power_led std_msgs/UInt8MultiArray "layout:
+  dim:
+  - label: ''
+    size: 0
+    stride: 0
+  data_offset: 0
+data: '[12,100]'"   |sets the power_led to a specific color|
+| rostopic pub /turtle1/PositionCommand geometry_msgs/Pose2D "x: 1.5 y: 0.0 theta: 10.0" |if controller node is started in r_521.launch - you can drive to a determined position.|
+
+See also: [Roomba Doku](https://github.com/CesMak/roomba_521)
+
+
 
 ## Gazebo simulation:
 ![](https://github.com/CesMak/turtlebot1/blob/master/doc/gazebo_all_robots.png)
