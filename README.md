@@ -88,19 +88,13 @@ roslaunch r_driver r_521.launch
 7. Subscribe / publish Topics:
 
 | Command | Explanation |
-| ------------- | ------------- |
+| ----------------- | ------ |
 | rostopic pub mySong std_msgs/Bool true| |
 | rostopic pub /sound std_msgs/UInt8MultiArray '{data:[70,102]}'||
 | rostopic pub -r 10 /cmd_vel geometry_msgs/Twist '{linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'||
 | rostopic echo bumper||
 | rostopic pub /dock_led std_msgs/Bool "data: false" |sets dock light to green|
-| rostopic pub /power_led std_msgs/UInt8MultiArray "layout:
-  dim:
-  - label: ''
-    size: 0
-    stride: 0
-  data_offset: 0
-data: '[12,100]'"   |sets the power_led to a specific color|
+| rostopic pub /power_led std_msgs/UInt8MultiArray "data: '[12,100]'"   |sets the power_led to a specific color|
 | rostopic pub /turtle1/PositionCommand geometry_msgs/Pose2D "x: 1.5 y: 0.0 theta: 10.0" |if controller node is started in r_521.launch - you can drive to a determined position.|
 
 See also: [Roomba Doku](https://github.com/CesMak/roomba_521)
