@@ -24,7 +24,7 @@ Make sure that no workspace is sourced in your .bashrc file. Check it via:
 
 ## Installation:
 
-![](https://github.com/CesMak/turtlebot1/blob/master/doc/installation.gif)
+[![Turtlebot1_Installation](https://img.youtube.com/vi/UkTMbMdC_Wg/0.jpg)](https://www.youtube.com/watch?v=UkTMbMdC_Wg)
 
 ```
 cd ~
@@ -42,8 +42,7 @@ turtle sim  (requires simulation to be installed)
 ```
 
 ## Simulation:
-
-![Simulation video](https://www.youtube.com/watch?v=4-XWDSzjQCw)
+[![Turtlebot1_Simulation](https://img.youtube.com/vi/XWDSzjQCw/0.jpg)](https://www.youtube.com/watch?v=4-XWDSzjQCw)
 
 1. Install it via:
 ```
@@ -53,10 +52,6 @@ turtle update_make
 
 2. Launch the Simulation via:
 
-| Command | Description |
-| --- | --- |
-| git status | List all new or modified files |
-| git diff | Show file differences that haven't been staged |
 
 | Command | Explanation |
 | ------------- | ------------- |
