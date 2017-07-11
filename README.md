@@ -22,7 +22,7 @@ Make sure that no workspace is sourced in your .bashrc file. Check it via:
 
 `vim ~/.bashrc`
 
-## Turtlebot1 - Installation:
+## Installation:
 
 ![](https://github.com/CesMak/turtlebot1/blob/master/doc/installation.gif)
 
@@ -41,9 +41,9 @@ turtle switch_gazebo [required under indigo: switch to gazebo version7]
 turtle sim  (requires simulation to be installed)
 ```
 
-## Turtlebot1 - Simulation:
+## Simulation:
 
-![Simulation video](https://www.youtube.com/watch?v=4-XWDSzjQCw&feature=youtu.be)
+![Simulation video](https://www.youtube.com/watch?v=4-XWDSzjQCw)
 
 1. Install it via:
 ```
@@ -52,7 +52,8 @@ turtle update_make
 ```
 
 2. Launch the Simulation via:
-| *Command* | *Explanation* |
+| Command | Explanation |
+| ------------- | ------------- |
 | roslaunch turtlebot1_gazebo turtlebot1.launch| |
 | roslaunch turtlebot1_gazebo turtlebot1_default.launch||
 | roslaunch turtlebot1_gazebo turtlebot1_launch_all_robots.launch||
