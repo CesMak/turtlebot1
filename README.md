@@ -22,7 +22,7 @@ Make sure that no workspace is sourced in your .bashrc file. Check it via:
 
 `vim ~/.bashrc`
 
-## Installation:
+## Turtlebot1 - Installation:
 
 ![](https://github.com/CesMak/turtlebot1/blob/master/doc/installation.gif)
 
@@ -41,17 +41,24 @@ turtle switch_gazebo [required under indigo: switch to gazebo version7]
 turtle sim  (requires simulation to be installed)
 ```
 
-## Launch Simulation:
+## Turtlebot1 - Simulation:
 
-![simulation video](https://github.com/CesMak/turtlebot1/blob/master/doc/simulation.mp4)
+![Simulation video](https://www.youtube.com/watch?v=4-XWDSzjQCw&feature=youtu.be)
 
+1. Install it via:
 ```
-roslaunch turtlebot1_gazebo turtlebot1.launch
-roslaunch turtlebot1_gazebo turtlebot1_default.launch
-roslaunch turtlebot1_gazebo turtlebot1_launch_all_robots.launch
-roslaunch turtlebot1_gazebo turtlebot1_full.launch  [rviz, gazebo with teleop in tb1 world]
-roslaunch turtlebot1_teleop teleop_key.launch
+turtle install simulation
+turtle update_make
 ```
+
+2. Launch the Simulation via:
+| *Command* | *Explanation* |
+| roslaunch turtlebot1_gazebo turtlebot1.launch| |
+| roslaunch turtlebot1_gazebo turtlebot1_default.launch||
+| roslaunch turtlebot1_gazebo turtlebot1_launch_all_robots.launch||
+| roslaunch turtlebot1_gazebo turtlebot1_full.launch|rviz, gazebo with teleop in tb1 world|
+| roslaunch turtlebot1_teleop teleop_key.launch||
+
 
 ## Installation of the Roomba_521 package:
 [Roomba Doku](https://github.com/CesMak/roomba_521)
