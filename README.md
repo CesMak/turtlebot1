@@ -52,6 +52,12 @@ turtle update_make
 ```
 
 2. Launch the Simulation via:
+
+| Command | Description |
+| --- | --- |
+| git status | List all new or modified files |
+| git diff | Show file differences that haven't been staged |
+
 | Command | Explanation |
 | ------------- | ------------- |
 | roslaunch turtlebot1_gazebo turtlebot1.launch| |
